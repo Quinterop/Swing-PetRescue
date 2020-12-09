@@ -1,9 +1,9 @@
 Nom des classes
 
-Board.java - gère l'actualisaton du board, 
-Player.java - recupère les input du joueur : utilisation d'objets, brisage de bloc etc...
+Board.java - gère l’actualisation du board,
+Player.java - récupère les input du joueur : utilisation d'objets, brisage de bloc etc...
 IA.java - chope le meilleur coup, conseil le joueur tec...
-Game.java - Lance la partie, gere les différent moments appelle de Player et Board
+Game.java - Lance la partie, gère les différent moments appelle de Player et Board
 
 Launcher.java
 
@@ -13,5 +13,3 @@ Level.java
 
 View.java
 Model.java
-
-
