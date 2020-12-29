@@ -106,7 +106,7 @@ public class BoardModel{
     System.out.println();
   }
 
-  public class Block{
+  static class Block{
     final boolean isMine, isBalloon, isSolid, isAnimal;
     boolean isGrid;
     final String color;
@@ -156,7 +156,5 @@ public class BoardModel{
       return String.valueOf(color.charAt(0)).toLowerCase();
 
     }
-
-
   }
 }
