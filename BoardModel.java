@@ -1,20 +1,17 @@
 package projet;
-import java.util.Scanner;
-import java.util.Random;
-
 
 public class BoardModel{
+  private BoardView view;
+  private BoardControler controler;
 
   private int height, width;
   private Block [][] board;
-  
   private int score;
 
-  public Board(int h, int w){
+  public BoardModel(int h, int w, Block [][] b){
     this.height = h;
     this.width = w;
-
-    this.board = new Block[width][height];
+    this.board = b;
   }
 
   public boolean isEmpty(int x, int y){
@@ -78,7 +75,38 @@ public class BoardModel{
     if (board[x-1][y+1].isGrid) board[x-1][y+1].isGrid = false;
   }
 
-  private class Block{
+  public void terminalDisplay(){
+    System.out.println("Score : " + "Placeholder");
+    System.out.println();
+
+    /*System.out.print("   ");
+    for (int i = 0; i < width; i++){
+      System.out.print(i + " ");
+    }
+    System.out.println();*/
+
+    System.out.print("--");
+    for (int i = 0; i < height; i++) {
+      System.out.print("__");
+    }
+    System.out.println();
+
+    for (int i = 0;  i < height; i++){
+      System.out.print("| ");
+      for (int j = 0; j < width; j++) {
+        System.out.print(board[i][j].toString());
+      }
+      System.out.print(" |");
+    }
+
+    System.out.print("--");
+    for (int i = 0; i < height; i++) {
+      System.out.print("__");
+    }
+    System.out.println();
+  }
+
+  public class Block{
     final boolean isMine, isBalloon, isSolid, isAnimal;
     boolean isGrid;
     final String color;
@@ -104,5 +132,31 @@ public class BoardModel{
     public boolean sameColor(Block c){
       return (color == c.color);
     }
+
+    public String toString(){
+      if (isMine) return "m";
+      if (isSolid) return "/";
+      if (this == null) return "*";
+      if (isAnimal) return "a";
+
+      if (isGrid){
+        if (color.equals("Purple")) return "z";
+        if (color.equals("Yellow")) return "e";
+        if (color.equals("Red")) return "t";
+        if (color.equals("Green")) return "s";
+        if (color.equals("Blue")) return "i";
+      } else if (isBalloon){
+        if (color.equals("Purple")) return "o";
+        if (color.equals("Yellow")) return "p";
+        if (color.equals("Red")) return "q";
+        if (color.equals("Green")) return "s";
+        if (color.equals("Blue")) return "d";
+      }
+
+      return String.valueOf(color.charAt(0)).toLowerCase();
+
+    }
+
+
   }
 }
