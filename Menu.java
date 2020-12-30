@@ -90,7 +90,7 @@ public class Menu extends JFrame {
 		slot1.addActionListener((ActionEvent e) -> {
 			if (noms[0] == null) 
 				scan(0);
-				Map map = new Map(noms[1]);
+				Map map = new Map(noms[0]);
 			
 		});
 		slot2.addActionListener((ActionEvent e) -> {
@@ -102,21 +102,21 @@ public class Menu extends JFrame {
 		slot3.addActionListener((ActionEvent e) -> {
 			if (noms[2] == null) 
 				scan(2);
-				Map map = new Map(noms[1]);
+				Map map = new Map(noms[2]);
 			
 		});
 		slot4.addActionListener((ActionEvent e) -> {
 			if (noms[3] == null) 
 				scan(3);
 			
-				Map map = new Map(noms[4]);
+				Map map = new Map(noms[3]);
 			
 		});
 		slot5.addActionListener((ActionEvent e) -> {
 			if (noms[4] == null) 
 				scan(4);
 			
-				Map map = new Map(noms[5]);
+				Map map = new Map(noms[4]);
 			
 		});
 	}
