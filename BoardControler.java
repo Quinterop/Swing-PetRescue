@@ -11,7 +11,5 @@ public class BoardControler{
   z,e,t,u,i = bloque de cage
   o,p,q,s,d = bloque ballon
   */
-  BoardControler(String nom,int numLevel){
-	  
-  }
+
 }
