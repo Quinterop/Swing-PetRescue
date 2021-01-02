@@ -122,13 +122,44 @@ public class BoardModel {
 		System.out.println();
 	}
 
-	public void gravity() {
+	public boolean isHole() { //vérifie si on a besoin de call gravity
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				
+				if (board[i][j] == null&& (board[i-1][j] != null&& !board[i-1][j].isSolid)) //check dessus
+					return true;
+				if ((board[i][j] != null&& !board[i][j].isSolid)&& board[i][j-1] == null&&(board[i-1][j] != null&& !board[i-1][j].isSolid)) //check dessus et gauche
+					return true;
+			}
+		}
+		return false;
+	}
+
+	public void gravity() {
+		boolean stop = false; // témoin de si on rencontre un bloc vide ou solide
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				if (board[i][j] == null) { // gravité vers le haut
+					stop = false;
+					for (int k = i; k >= 0; k--) {
+						if (board[k - 1][j].isSolid || board[k - 1][j] == null)
+							stop = true;
+						if (stop == false) {
+							board[k][j] = board[k - 1][j];
+						}
+					}
+				}
+				if (board[i][j - 1] == null && (board[i - 1][j] == null || board[i - 1][j].isSolid)) { // cas ou les
+																										// blocs dessus
+																										// et a gauche
+																										// sont vides
+					board[i][j] = board[i][j - 1];
+				}
+
 			}
 
 		}
+		if(isHole())
+			gravity();
 	}
 
 	public class Block {
