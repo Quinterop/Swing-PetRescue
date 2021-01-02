@@ -7,9 +7,9 @@ public class BoardModel {
 	private Block[][] board;
 	private int score;
 
-	public BoardModel(int h, int w, Block[][] b) {
-		this.height = h;
-		this.width = w;
+	public BoardModel( Block[][] b) {
+		this.height = b.length;
+		this.width = b[0].length;
 		this.board = b;
 	}
 
